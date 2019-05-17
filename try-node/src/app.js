@@ -2,7 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import createError from 'http-errors';
-import indexRouter from './routes/index';
+import indexRouter from './routes';
 
 var app = express();
 

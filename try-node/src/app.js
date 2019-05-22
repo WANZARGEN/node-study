@@ -2,8 +2,15 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import createError from 'http-errors';
-import indexRouter from './routes';
 
+import indexRouter from './routes';
+import redis from './lib/redis'
+
+// redis
+redis.set("string key", "string val");
+redis.hset("hash key", "hashtest 1", "some value");
+
+// app
 var app = express();
 
 app.use(logger('dev'));

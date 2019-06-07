@@ -2,13 +2,14 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import createError from 'http-errors';
+import path from 'path';
 
 import indexRouter from './routes';
-import redis from './lib/redis'
+// import `red`is from './lib/redis'
 
 // redis
-redis.set("string key", "string val");
-redis.hset("hash key", "hashtest 1", "some value");
+// redis.set("string key", "string val");
+// redis.hset("hash key", "hashtest 1", "some value");
 
 // app
 var app = express();
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
+// app.use(express.static(path.join(__dirname,'../dist')));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
